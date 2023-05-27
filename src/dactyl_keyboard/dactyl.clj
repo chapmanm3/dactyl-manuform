@@ -744,11 +744,13 @@
 
 (spit "things/right-plate.scad"
       (write-scad
-        (resize [0 0 3]
-                       (difference (hull (union case-walls
+                     (translate [0 0 1]
+                       (difference (intersection (hull (union case-walls
                                           ; teensy-holder
                                           ; rj9-holder
                                           screw-insert-outers))
+                                          (cube 300 300 3 )
+                                    )
                                    (translate [0 0 -10] screw-insert-screw-holes))
                   )))
 
